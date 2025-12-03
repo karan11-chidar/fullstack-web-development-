@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>My feedback form</h2>
+    <ul style="list-style-type: disc">
+      <li>
+        <label for="userName">Name: </label>
+        <input
+          type="text"
+          name="userName"
+          id="userName"
+          placeholder="Enter name"
+          required
+        />
+      </li>
+      <br />
+
+      <li>
+        <label for="userEmail">Email:</label>
+        <input
+          type="email"
+          name="userEmail"
+          id="userEmail"
+          placeholder="Enter  email"
+          required
+        />
+      </li>
+      <li>
+        <label for="userPassword">Password:</label>
+        <input
+          type="password"
+          name="userPassword"
+          id="userPassword"
+          placeholder="Enter password"
+          required
+        />
+      </li>
+      <br />
+
+      <li>
+        <p>Please check all the emotions that apply to you:</p>
+        <ul style="list-style-type: disc">
+          <li>
+            <label for="angery">Angery </label>
+            <input type="checkbox" name="angery" id="angery" />
+          </li>
+          <li>
+            <label for="sad">Sad </label>
+            <input type="checkbox" name="sad" id="sad" />
+          </li>
+          <li>
+            <label for="happy">Happy </label>
+            <input type="checkbox" name="happy" id="happy" />
+          </li>
+          <li>
+            <label for="ambivalent">Ambivalent </label>
+            <input type="checkbox" name="ambivalent" id="ambivalent" />
+          </li>
+        </ul>
+      </li>
+      <br />
+      <li>
+        <p>How satisfied were you with our service?</p>
+        <ul style="list-style: disc">
+          <li>
+            <label for="verysatisfied"> Very Satisfied </label>
+            <input type="radio" id="satisfied" name="verysatisfied" />
+          </li>
+          <li>
+            <label for="satisfied">Satisfied </label>
+            <input type="radio" id="satisfied" name="satisfied" />
+          </li>
+
+          <li>
+            <label for="didn't care">Didn't care </label>
+            <input type="radio" id="didn't care" name="didn't care" />
+          </li>
+          <li>
+            <label for="dissatisfied">Dissatisfied </label>
+            <input type="radio" id="dissatisfied" name="dissatisfied" />
+          </li>
+          <li>
+            <label for="veryDissatisfied">Very Dissatisfied </label>
+            <input type="radio" id="veryDissatisfied" name="veryDissatisfied" />
+          </li>
+        </ul>
+      </li>
+      <li>
+        <label for="comments">Further comments:</label>
+        <textarea name="comments" id="" cols="30" rows="3"></textarea>
+      </li>
+      <li>
+        <label for="bioPhoto:">Bio Photo:</label>
+        <input type="file" id="bioPhoto" name="bioPhoto" />
+      </li>
+      <li>
+        <label for="location">Location visited:</label>
+        <select
+          name="locationlist"
+          id="locationlist"
+          aria-placeholder="Select location"
+        >
+          <option value="us">U.S.A</option>
+          <option value="india">India</option>
+        </select>
+      </li>
+      <li></li>
+    </ul>
+  </body>
+</html>
