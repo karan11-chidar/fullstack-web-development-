@@ -1,0 +1,92 @@
+*{
+    border:0;
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(243, 246, 246, 0.849);
+}
+
+.headerSection{
+    background-color: rgba(31, 24, 24, 0.749) ;
+    height: 110px;
+}
+#headingTop{
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top:px;
+}
+#headingBottom{
+    text-align: center ;
+    color: lightgray;
+}
+.aboutPage{
+    margin-top: 10px;
+    margin-left:30px;
+    padding: 20px;
+}
+#headingAbout{
+    margin-bottom: 10px;
+    font-weight: 500px;
+    font-display: auto;
+    font-style: italic;
+}
+#aboutMePara{
+    margin-top: 5px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.skillsSection{
+    background-color: rgb(235, 229, 229);
+    height: 250px;
+    margin-top: 10px;
+    margin-left: 30px;
+    border-radius: 20px;
+}
+#headingSkills{
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 10px;
+}
+#listSkills{
+line-height: 1.5;
+}
+.projectSection{
+background-color: rgb(235, 229, 229);
+    height: 300px;
+    margin-left: 30px;
+    border-radius: 30px;
+}
+#headingProjects{
+    margin-left: 15px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+#listProjects{
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+.resumeSection{
+    margin: 30px;
+}
+.contactSection{
+    margin-left:  30px;
+    height: 130px;
+    line-height: 1.8 ;
+}
+footer{
+    background-color: black;
+    text-align: center;
+    margin-top: 40px;
+    color: azure;
+    height: 50px;
+    padding-top: 15px;
+}
+
+
+
