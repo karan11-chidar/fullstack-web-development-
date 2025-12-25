@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* page background: almost black with deep blue */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #07152b 0%, #020611 55%, #000000 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* big cyan diagonal glow on the right like reel */
+.bg-gradient {
+  position: absolute;
+  width: 850px;
+  height: 850px;
+  background: linear-gradient(135deg, #00f6ff, #00ffd1);
+  opacity: 0.28;
+  filter: blur(150px);
+  transform: translate(20%, -10%) rotate(-12deg);
+  animation: bgMove 9s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+  from {
+    transform: translate(12%, -16%) rotate(-15deg);
+  }
+  to {
+    transform: translate(28%, -2%) rotate(-8deg);
+  }
+}
+
+/* main card: dark with neon cyan edge */
+.login-card {
+  position: relative;
+  display: flex;
+  width: 820px;
+  max-width: 96vw;
+  background: linear-gradient(135deg, rgba(4, 10, 25, 0.96), rgba(4, 22, 42, 0.96));
+  border-radius: 22px;
+  border: 1px solid rgba(0, 255, 255, 0.35);
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.35),
+    0 0 60px rgba(0, 255, 209, 0.18);
+  overflow: hidden;
+  transform: translateY(40px) scale(0.95);
+  opacity: 0;
+  animation: cardIn 1s ease forwards;
+}
+
+@keyframes cardIn {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* left section */
+.login-left {
+  flex: 3;
+  padding: 40px 50px;
+}
+
+.login-left h2 {
+  font-size: 28px;
+  margin-bottom: 32px;
+  letter-spacing: 0.08em;
+}
+
+/* inputs */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.field label {
+  font-size: 13px;
+  color: #98b0cf;
+  margin-bottom: 6px;
+}
+
+.field input {
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 255, 0.40);
+  background: rgba(3, 12, 28, 0.95);
+  color: #e7f2ff;
+  outline: none;
+  transition: border 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.field input::placeholder {
+  color: #6b7b92;
+}
+
+.field input:focus {
+  background: rgba(6, 27, 52, 0.98);
+  border-color: #00f6ff;
+  box-shadow: 0 0 12px rgba(0, 246, 255, 0.8);
+}
+
+/* cyan-turquoise gradient button like video */
+button {
+  margin-top: 6px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #00f6ff, #00ffd1);
+  color: #021015;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 255, 210, 0.35);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(0, 255, 210, 0.45);
+  filter: brightness(1.05);
+}
+
+button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 6px 16px rgba(0, 255, 210, 0.3);
+}
+
+/* bottom text with cyan Sign Up link */
+.bottom-text {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #9db4d4;
+}
+
+.bottom-text a {
+  color: #00f6ff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.bottom-text a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00f6ff, #00ffd1);
+  transition: width 0.25s ease;
+}
+
+.bottom-text a:hover::after {
+  width: 100%;
+}
+
+/* right section – cyan gradient slab with white text */
+.login-right {
+  flex: 2;
+  padding: 40px 40px;
+  background: linear-gradient(135deg, rgba(0, 246, 255, 0.10), rgba(0, 255, 209, 0.02));
+  border-left: 1px solid rgba(0, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.login-right span {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* button press pulse (micro animation) */
+button.pulse {
+  animation: pulse 0.23s ease-out;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* responsive */
+@media (max-width: 760px) {
+  .login-card {
+    flex-direction: column;
+  }
+
+  .login-right {
+    order: -1;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .login-right span {
+    font-size: 22px;
+  }
+}

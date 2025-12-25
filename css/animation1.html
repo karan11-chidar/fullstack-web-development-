@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 2px solid black;
+            background-color: azure;
+            height: 700px;
+            width: 1250px;
+        }
+        .box{
+            border: 2px solid rgb(20, 20, 7);
+            height: 150px;
+            width: 200px;
+            background-color: orange;
+            border-radius: 20px;
+            margin: 10px;
+           animation-name: boxShifting;
+           animation-duration: 3s;
+           animation-iteration-count: infinite;
+
+           position: relative;
+        }
+        @keyframes boxShifting{
+            from{
+                top: 0;
+                left: 0;
+            }
+            to{
+                top: 0;
+                left: 1200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+</body>
+</html>
