@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            border: 2px solid gold;
+            height: 100vh;
+            width: 100vw;
+            background-color: beige;
+        }
+        .box{
+            margin: 10px;
+            border: 2px solid black;
+            height: 50px;
+            width: 220px;
+            background-color: rgb(27, 210, 216);
+            animation-name: boxslide;
+            position: relative;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        .circle{
+            border: 2px solid gray;
+            background-color: rgb(11, 224, 224);
+            height: 30px;
+            width: 30px;
+            border-radius: 15px;
+            position: relative;
+            animation-name: circle;
+            animation-duration: 10s;
+            
+            animation-iteration-count: infinite;
+        }
+        .box2{
+           margin: 10px;
+            border: 2px solid black;
+            height: 50px;
+            width: 220px;
+            background-color: rgb(27, 210, 216);
+            animation-name: boxslide2;
+            position: relative;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes boxslide {
+            from{
+                top: 0;
+                left: 0;
+            }
+            to{
+                top: 0;
+                left: 1000px;
+            }
+        }
+        @keyframes boxslide2 {
+            from{
+                top: 410px;
+                left: 0;
+            }
+            to{
+                top: 410px;
+                left: 1000px;
+            }
+        }
+        @keyframes circle {
+            0%{
+                top: 0px;
+                left:0;
+            }
+            25%{
+                top: 26px;
+                left: 1000px;
+            }
+            50%{
+                top: 400px;
+                left: 0;
+            }
+            75%{
+                top: 200px;
+                left: 1000px;
+            }
+            100%{
+                top: 400px;
+                left: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="circle"></div>
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
