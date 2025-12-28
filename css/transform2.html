@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contianer{
+            height: 100vh;
+            width: 100vw;
+            border: 2px solid rgb(15, 14, 13);
+            background-color: rgb(25, 27, 27);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            width: 260px;
+            height: 160px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(222, 245, 8, 0.934);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+
+            transition: transform 0.15s ease-out;
+            transform-style: preserve-3d;
+}
+
+
+        .box:hover{
+           transform:  translateY(-2px)scale(1 + depth * 0.03);
+
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="contianer">
+        <div class="card">Hover me</div>
+    </div>
+</body>
+<script>
+    const card = document.querySelector(".card");
+
+card.addEventListener("mousemove", (e) => {
+  const rect = card.getBoundingClientRect();
+
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+
+  const rotateX = -(y - centerY) / 10;
+  const rotateY = (x - centerX) / 10;
+
+  card.style.transform = `
+    perspective(600px)
+    translateY(-2px)
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+    scale(1.05)
+  `;
+});
+
+card.addEventListener("mouseleave", () => {
+  card.style.transform = `
+    perspective(600px)
+    translateY(0)
+    rotateX(0)
+    rotateY(0)
+    scale(1)
+  `;
+});
+
+
+</script>
+</html>
