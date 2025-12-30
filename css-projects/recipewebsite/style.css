@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: none;
+    overflow-y: none;
+    background-color: lightcyan;
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    
+}
+.navbar{
+background-image: linear-gradient( 90.9deg,  rgba(172,230,246,1) -0.5%, rgba(68,100,145,1) 99.8% );
+height: 60px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#navList{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#navLogo{
+    margin-left: 15px;
+    color: azure;
+    font-size: 2.3rem;
+}
+a{
+    color: azure;
+    text-decoration: none;
+}
+#nav-Itmes{
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 1.3rem;
+    display: flex;
+    gap: 25px;
+}
+.footerBox{
+    overflow-y: none;
+    overflow-x: none;
+background-image: linear-gradient( 90.9deg,  rgba(172,230,246,1) -0.5%, rgba(68,100,145,1) 99.8% );
+    min-height: 40px;
+    text-align: center;
+    padding-top: 6px;
+}
+.footerBox p{
+    color: azure;
+    font-size: 1.3rem;
+}
+.contentBox{
+        box-shadow: 0px 0px 20px black;
+    overflow-y: none;
+    overflow-x: none;
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    background-color: aliceblue;
+}
+#item1{
+    display: flex;
+    padding: 1.5rem;
+    gap: 1.5rem ;
+    justify-content: space-between;
+}
+.leftBox{
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+.rightBox{
+    transition: all o.3s linear 0s;
+    position: relative;
+}
+.rightBox img{
+height: 300px;
+width: 300px;
+border-radius: 20px;
+}
+.rightBox .overlay{
+    opacity: 0;
+    transition: all 0.3s linear 0s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    left:0;
+    right: 0;
+    top: 0;
+position: absolute;
+height: 300px;
+width: 300px;
+border-radius: 20px;
+background-color: rgba(61, 59, 59, 0.808);
+}
+.overlay:hover{
+    opacity: 1;
+}
+.overlay p{
+    color: azure;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.rightBox:hover{
+transform: scale(1.1);
+}
+ol,ul{
+    line-height: 25px;
+}
