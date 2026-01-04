@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: rgba(46, 46, 147, 0.808);
+            border: 2px solid black;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            height: 60%;
+            width: 50%;
+            background-color: azure;
+            display: flex;
+        }
+        .leftBox{
+            height: 100%;
+            width: 50%;
+           background-color: rgb(133, 12, 133);
+           display: flex;
+           flex-direction: column;
+           gap: 3rem;
+           padding: 10px;
+        }
+        .rightBox{
+            height: 100%;
+            width: 50%;
+            background-image: url("images.jpg")
+        }
+        .leftBox h2{
+            font-size: 1.6rem;
+            text-align: center;
+            color: azure;
+           margin-top: 35px;
+           margin-left: 7px;
+        }
+        .leftBox p{
+
+            color: azure;
+            text-align: center;
+        }
+        .leftBox .routs{
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+             <div class="leftBox">
+            <h2>
+                Get insights that help your business grow
+            </h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste assumenda reprehenderit reiciendis suscipit a explicabo illum quae aspernatur eos ea?
+            </p>
+            <div class="routs">
+                <div class="1">
+                    <p>10K+</p>
+                    <p>Comments</p>
+                </div>
+                <div class="2">
+                    <p>
+                        214
+                    </p>
+                    <p>Paid Users</p>
+                </div>
+                <div class="3">
+                    <p>12M+</p>
+                    <p>Views</p>
+                </div>
+            </div>
+        </div>
+        <div class="rightBox">
+        </div>
+        </div>
+    </div>
+</body>
+</html>
