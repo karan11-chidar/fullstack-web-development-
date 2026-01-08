@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+           height: 100vh;
+           width: 100vw;
+        }
+        .container{
+            height: 100%;
+            width: 100%;
+            padding: 2rem;
+            background-color: rgb(103, 102, 102);
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(4,1fr);
+
+        }
+        .items{
+            background-color: azure;
+        }
+        .item1{
+            grid-column: 1/5;
+        }
+        .item3{
+            grid-column: 2/5;
+        }
+        .item4{
+            grid-column: 1/5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="items item1"></div>
+        <div class="items item2"></div>
+        <div class="items item3"></div>
+        <div class="items item4"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: aliceblue;
+}
+.container{
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    background-color: azure;
+    border: 2px solid black;
+}
+.header_Container{
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+   
+}
+#header_Title{
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+   
+#header_Decs{
+    margin: 0 auto;
+    max-width: 550px;
+    text-align: center;
+    color: rgb(104, 99, 99);
+}
+.content_Container{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4,1fr);
+    border: 2px solid brown;
+}
