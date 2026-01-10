@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .inline-grid-box{
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin-right: 10px;
+} */
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.item{
+  background: lightblue;
+  padding: 20px;
+  text-align: center;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <!-- <div class="inline-grid-box">
+  <span>🔥</span>
+  <span>Trending</span>
+</div>
+
+<div class="inline-grid-box">
+  <span>⭐</span>
+  <span>Featured</span>
+</div> -->
+<div class="grid-container">
+  <div class="item">Card 1</div>
+  <div class="item">Card 2</div>
+  <div class="item">Card 3</div>
+</div>
+
+
+</body>
+</html>
