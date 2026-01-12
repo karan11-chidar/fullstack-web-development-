@@ -41,9 +41,14 @@ body{
     height: 5.875rem;
     width: 1.938rem;
 }
-.navigation_links{
-    display: flex;
-    gap: 1.5rem;
+ .navigation_links{
+        display:none;
+        gap:1.5rem;
+    }
+@media (min-width:768px) {
+    .navigation_links{
+        display: flex;
+    }
 }
 .nav_Link{
      color: #718096;
@@ -54,18 +59,43 @@ body{
 .nav_Link:hover{
     color: var(--link-color);
 }
-.contact_Button{
+ .contact_Button{
+    display: none;
     border: none;
-    border-radius: 0.375rem;
-   padding: 0.75rem 1.5rem;
-   font-size: 1rem;
-   font-weight: 600;
-    color: var(--background-color);
-    background-color: var(--primary-color);
-    transition:all 0.3s;
+        border-radius: 0.375rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+        color: var(--background-color);
+        background-color: var(--primary-color);
+        transition:all 0.3s;
+    }
+
+@media (min-width:768px) {
+    .contact_Button{
+        display: block;
+    }
 }
 .contact_Button:hover{
     background-color: #5254f8;
     transform: translateY(-3px);
     box-shadow: 2px 2px 4px black;
+}
+.menu_Button{
+   border: none;
+   display: none;
+   border-radius:0.375rem;
+   font-size: 1rem;
+     padding: 0.5rem 0.9rem;
+  font-weight: 600;
+ background-color: var(--background-color);
+}
+.menu_Icon{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+@media screen and (max-width:768px){
+    .menu_Button{
+        display:block;
+    }
 }
