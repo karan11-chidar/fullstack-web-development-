@@ -233,22 +233,159 @@ body{
     }
 } 
 .company_Logos{
-    border: 2px solid black;
     max-width: 1280px;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    gap: 1rem;
+    animation: slideFormLeft 1s ease forwards;
 }
 .grid_Container{
+    border: none;
+    margin-top: 1rem;
+    border-radius: 0.625rem;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    gap: 3.6rem;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--light-gray);
+    padding: 1.5rem;
 }
-.vectorEdu_Item{
-    height: 1rem;
-    width: 1rem;
+.company_Logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--gray);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+.svg_Logo{
+    height: 1.4rem;
+    
+}
+.company_Title{
+    margin-bottom: 0rem;
+    font-size: 1.5rem; 
+    color: var(--text-color);
+    font-weight: bold;
+}
+@media screen and (min-width:768px){
+    .grid_Container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.main_Card_Container{
+    max-width: 1280px;
+    padding: 2rem 2.5rem;
+   background-color: var(--light-gray);
+    display: flex;
+    flex-direction: column;
+   justify-content: ceter;
+   align-items: center;;
+}
+.inner_Card_Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.info_Box{
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+}
+.info_Title{
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+.info_Desc{
+    width: 65%;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--gray);
+}
+.card_Box{
+    max-width: 65%;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+.info_Card{
+    border: none;
+   transition: all 0.3s ease;
+    border-radius: 0.625rem;
+    display: flex;
+    padding: 0.7rem 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    background-color: rgb(74, 87, 235);
+}
+.info_Card:hover{
+    transform: translateY(-5px);
+box-shadow: 2px 4px 8px black;}
+.img_Box{
+        margin-top: 1rem;
+    position: relative;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.background_Box{
+    background-color: whitesmoke;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}
+.card_Image{
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+}
+.card_Title{
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--background-color);
+}
+.card_Desc{
+    font-size: 0.9rem;
+    color: var(--background-color);
+    text-align: center;
+    padding: 0.5rem ;
+    padding-bottom: 1.8rem;
+    line-height: 1.4rem;
+}
+#card1{
+    background-color: #4a90e2;
+}
+#card2{
+    background-color: #FF6289;
+}
+#card3{
+   background-color: #fcbf58;
+}
+#card4{
+    background-color: #44bfc3;
+}
+#card5{
+    background-color: #77b05d;
+}
+#card6{
+   background-color: #7d78b1;
+}
+@media screen and (max-width:768px) {
+    .card_Box{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
