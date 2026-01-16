@@ -244,8 +244,8 @@ body{
     animation: slideFormLeft 1s ease forwards;
 }
 .grid_Container{
-    border: none;
-    margin-top: 1rem;
+     max-width: 800px;
+    margin: 2rem auto;
     border-radius: 0.625rem;
     display: grid;
     gap: 3.6rem;
@@ -264,10 +264,10 @@ body{
 }
 .svg_Logo{
     height: 1.4rem;
-    
 }
 .company_Title{
-    margin-bottom: 0rem;
+    text-align: center;
+    margin: 2rem 0;
     font-size: 1.5rem; 
     color: var(--text-color);
     font-weight: bold;
@@ -275,6 +275,10 @@ body{
 @media screen and (min-width:768px){
     .grid_Container{
         grid-template-columns: repeat(4, 1fr);
+    }
+    .company_Title{
+        font-size: 2rem;
+        font-weight: bold;
     }
 }
 .main_Card_Container{
@@ -386,6 +390,77 @@ box-shadow: 2px 4px 8px black;}
 }
 @media screen and (max-width:768px) {
     .card_Box{
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(1,1fr);
+    }
+    .testimonial_Title{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
+.testimonial_Container{
+    max-width: 1280px;
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial_Content{
+    max-width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1.8rem;  
+}
+.testimonial_Title{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+.testimonial_Box{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+}
+.testimonial_Card{
+     border: 1px solid rgb(171, 163, 163);
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.testimonial_Card:hover{
+    transform: scale(1.05);;
+    box-shadow: 0 4px 8px rbga(0,0,0,0.2);
+    border: 1px solid blue;
+}
+.testimonial_Card p{
+    text-align: center;
+    color: #555;
+    font-size: 0.875rem;
+    line-height: 1.4rem;
+}
+.testimonial_Img{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+}
+.testimonial_Name{
+       color: var(--primary-color);
+    font-size: 1rem;
+    font-size: 1rem;
+}
+.testimonial_Decs{
+      font-size: 0.875rem;
+    color: #777;
+}
+@media screen and (max-width:768px){
+    .testimonial_Box{
+        grid-template-columns: repeat(1,1fr);
     }
 }
