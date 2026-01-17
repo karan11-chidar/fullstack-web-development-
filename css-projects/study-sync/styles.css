@@ -16,7 +16,7 @@
     text-decoration: none;
 }
 body{
-    height: 100vh;
+    min-height:  100vh;
     padding: 0.1rem;
     font-family: 'Inter', sans-serif;
     text-decoration: none;
@@ -166,11 +166,11 @@ body{
 .take_Tour{
     background-color: var(--dark-gray);
 }
-.start-button:hover{
+.start_Button:hover{
     background-color: #5254f8;
 }
 
-.tour-button:hover{
+.take_Tour:hover{
     background-color: var(--gray);
 }
 .right_Section{
