@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --primary-color: #ff5722;
+    --primary-gradient: linear-gradient(135deg, #ff5722, #ff9800);
+    --card-bg: #ffffff;
+    --bg-color: #f8fafc;
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-dark);
+}
+
+/* Header Styling */
+.header {
+    background: var(--primary-gradient);
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+}
+
+.task-icon {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Form Styling */
+.inputData-container {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 700px;
+}
+
+.form {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    border-radius: 12px;
+    box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.input {
+    flex: 1;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+}
+
+#inputBtn {
+    background: var(--success-color);
+    color: white;
+    padding: 0 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+#inputBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Task Container */
+#mainContent {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.taskContainer {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    min-height: 200px;
+}
+
+/* Task Card (JS se generate karne ke liye template) */
+.task-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s;
+}
+
+.task-card:hover {
+    transform: scale(1.01);
+    border-color: var(--primary-color);
+}
+
+.task-info h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.task-info p {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+.task-actions{
+    display: flex;
+    gap:1.5rem;
+}
+.delete-btn {
+    background: #fee2e2;
+    color: #ef4444;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: #ef4444;
+    color: white;
+}
+.complete-btn{
+    background: #fee2e2;
+    color: #06ee12;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.complete-btn:hover{
+ background: #00b10c;
+    color: white;
+}
+.edit-btn{
+    background: #fee2e2;
+    color: #0e0ee1;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.edit-btn:hover{
+    background: #1b069f;
+    color: white;
+}
+.completed{
+    background-color: #00b10c;
+    text-decoration-line: overline;
+}
+/* Responsive */
+@media (max-width: 600px) {
+    .form {
+        flex-direction: column;
+    }
+    #inputBtn {
+        height: 45px;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNC Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="headerContent">
+                <div class="task-icon">
+                    <i data-lucide="bookmark-check"></i>
+                </div>
+                <h1>Task Manager</h1>
+            </div>
+        </header>
+
+        <!-- Input Section -->
+        <section class="inputData-container">
+            <form class="form">
+                <div class="input-group">
+                    <input type="text" id="titleInput" placeholder="Enter Title" class="input">
+                </div>
+                <div class="input-group">
+                    <input type="text" id="descriptionInput" placeholder="Enter Details" class="input">
+                </div>
+                <button type="button" id="inputBtn">
+                    <i data-lucide="plus-circle" style="width: 18px; height: 18px;"></i>
+                    Add Task
+                </button>
+            </form>
+        </section>
+
+        <!-- Main Task Area -->
+        <main id="mainContent">
+            <div class="taskContainer" id="taskContainer">
+                <!-- JS se yahan task-cards aayenge -->
+                <div class="taskList" id="taskList">
+                    <!-- Sample Card for UI Testing -->
+                </div>
+            </div>
+        </main>
+    </div>
+    <script> lucide.createIcons(); </script>
+    <script src="script.js"></script>
+</body>
+</html>
