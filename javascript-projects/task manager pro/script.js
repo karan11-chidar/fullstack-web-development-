@@ -1,92 +1,140 @@
-// --- 1. DATA STATE ---
-let tasks = JSON.parse(localStorage.getItem("elite_tasks")) || [];
+// global array
 
-// --- 2. CORE LOGIC ---
-function renderTasks(data = tasks) {
-  const grid = document.getElementById("taskGrid");
-  grid.innerHTML = "";
+const tasksList = [];
 
-  data.forEach((task, index) => {
-    const card = document.createElement("div");
-    card.className = `task-card ${task.completed ? "completed" : ""}`;
-    card.innerHTML = `
-                <span class="badge ${task.priority}">${task.priority}</span>
-                <h4>${task.title}</h4>
-                <p>${task.desc}</p>
-                <div class="task-actions">
-                    <i data-lucide="${task.completed ? "rotate-ccw" : "check"}" class="action-icon" onclick="toggleTask(${index})"></i>
-                    <i data-lucide="trash-2" class="action-icon" style="color:var(--danger)" onclick="deleteTask(${index})"></i>
-                </div>
-            `;
-    grid.appendChild(card);
-  });
+// Modals Ids
+let sidebar = document.getElementById('sidebar');
+let menuBtn = document.getElementById('menuBtn');
+let openModal = document.getElementById('addTaskBtn');
+let closeModal = document.getElementById('closeModal');
+let taskModal = document.getElementById('taskModal');
+let saveModal = document.getElementById('saveModal');
+let taskGrid = document.getElementById("task-grid");
 
+// Handle Ui with js 
+openModal.addEventListener('click', function () {
+  console.log('click add task modal');
+  taskModal.style.display = 'flex';
+})
+
+closeModal.addEventListener('click', function () {
+  console.log('click close modal');
+  taskModal.style.display = 'none';
+})
+
+menuBtn.addEventListener('click', function () {
+  console.log('click menu btn');
+  sidebar.classList.toggle('open');
+})
+
+// Buttons Actions handle
+taskGrid.addEventListener('click', function (event) {
+})
+
+function renderTask(task,taskNumber){
+  let newTask = document.createElement('div');
+  newTask.classList.add('task-card');
+  newTask.dataset.index = taskNumber;
+  newTask.innerHTML = ` <!-- Top -->
+        <div class="task-top">
+
+            <span class="badge high">${task.priority}</span>
+
+            <div class="task-menu">
+                <i data-lucide="more-horizontal"></i>
+            </div>
+
+        </div>
+
+        <!-- Title -->
+        <h4 class="task-title">${task.title}</h4>
+
+        <!-- Description -->
+        <p class="task-desc">
+           ${task.description}
+        </p>
+
+        <!-- Date & Time -->
+        <div class="task-date-time">
+
+            <div class="task-info">
+                <i data-lucide="calendar-days"></i>
+                <span>${task.date}</span>
+            </div>
+
+            <div class="task-info">
+                <i data-lucide="clock-3"></i>
+                <span>${task.time}</span>
+            </div>
+
+        </div>
+
+        <!-- Status -->
+        <div class="task-status-row">
+
+            <div class="task-status working">
+                <span class="status-dot"></span>
+                In Progress
+            </div>
+
+            <div class="task-priority">
+                <i data-lucide="flag"></i>
+                Priority Task
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="task-footer">
+
+            <!-- User -->
+            <div class="task-user">
+                <div class="user-avatar">K</div>
+                <span>Karan</span>
+            </div>
+
+            <!-- Actions -->
+            <div class="task-actions">
+
+                <button class="task-btn edit-task">
+                    <i data-lucide="square-pen"></i>
+                </button>
+
+                <button class="task-btn delete-task">
+                    <i data-lucide="trash-2"></i>
+                </button>
+
+                <button class="task-btn complete-task">
+                    <i data-lucide="circle-check-big"></i>
+                </button>
+
+            </div>
+        </div>`;
+  taskGrid.appendChild(newTask);
   lucide.createIcons();
-  updateStats();
-  localStorage.setItem("elite_tasks", JSON.stringify(tasks));
 }
-
-function addTask() {
-  const title = document.getElementById("taskTitle").value;
-  const desc = document.getElementById("taskDesc").value;
-  const priority = document.getElementById("taskPriority").value;
-
-  if (!title) return alert("Title please, Master!");
-
-  tasks.unshift({ title, desc, priority, completed: false });
-  closeModal();
-  renderTasks();
-  document.getElementById("taskTitle").value = "";
-  document.getElementById("taskDesc").value = "";
-}
-
-function toggleTask(index) {
-  tasks[index].completed = !tasks[index].completed;
-  renderTasks();
-}
-
-function deleteTask(index) {
-  if (confirm("Master, delete this task?")) {
-    tasks.splice(index, 1);
-    renderTasks();
+// save task form
+saveModal.addEventListener('click', function (event) {
+  console.log('click sumbit button');
+  //  inputs values
+  let title = document.getElementById('titleInput').value;
+  let priority = document.getElementById('prioritySelect').value;
+  let description = document.getElementById('descriptionInput').value;
+  let date = document.getElementById('date-picker').value;
+  let time = document.getElementById('time-picker').value;
+  
+  // object values tasks
+  const task = {
+    title: title,
+    description: description,
+    priority: priority,
+    completed: false,
+    date: date,
+    time:time
   }
-}
-
-function updateStats() {
-  const total = tasks.length;
-  const completed = tasks.filter((t) => t.completed).length;
-  const pending = total - completed;
-  const productivity = total === 0 ? 0 : Math.round((completed / total) * 100);
-
-  document.getElementById("statProductivity").innerText = productivity + "%";
-  document.getElementById("statCompleted").innerText = completed;
-  document.getElementById("statPending").innerText = pending;
-}
-
-function filterTasks() {
-  const term = document.getElementById("searchInput").value.toLowerCase();
-  const filtered = tasks.filter(
-    (t) =>
-      t.title.toLowerCase().includes(term) ||
-      t.desc.toLowerCase().includes(term),
-  );
-  renderTasks(filtered);
-}
-
-// --- 3. UI UTILS ---
-function toggleSidebar() {
-  document.getElementById("sidebar").classList.toggle("open");
-}
-
-function openModal() {
-  document.getElementById("taskModal").style.display = "flex";
-}
-function closeModal() {
-  document.getElementById("taskModal").style.display = "none";
-}
-
-// Init
-window.onload = () => {
-  renderTasks();
-  lucide.createIcons();
-};
+  tasksList.push(task);
+  console.log(tasksList);
+  renderTask(task,tasksList.length-1);
+  taskModal.style.display = 'none';
+})
+lucide.createIcons()

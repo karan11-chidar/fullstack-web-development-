@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form id="myForm">
+    <input type="text" id="titleInput" placeholder="Task Title">
+    <!-- Yeh khali tag error dikhane ke liye hai -->
+    <span id="titleError" style="color: red;"></span> 
+    <button type="submit">Add Task</button>
+</form>
+<script>
+    let form = document.getElementById('myForm');
+let titleInput = document.getElementById('titleInput');
+let titleError = document.getElementById('titleError');
+titleInput.addEventListener('input', function() {
+    if (titleInput.value !== "") {
+        titleError.textContent = ""; // Box khali nahi hai toh error message hata do
+    }
+});
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Page reload ko roka
+
+    // Agar input khali hai, toh screen par error dikhao
+    if (titleInput.value === "") {
+        titleError.textContent = "Bhai, title likhna zaroori hai!"; 
+    } else {
+        titleError.textContent = ""; // Sab sahi hai toh error hata do
+        console.log("Task add ho gaya:", titleInput.value);
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- HTML -->
+<form id="uploadForm">
+    <input type="file" id="fileInput">
+    <button type="submit">Upload</button>
+</form>
+    <script>
+        
+        // JavaScript
+let form = document.getElementById('uploadForm');
+let fileInput = document.getElementById('fileInput');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Page refresh roka
+
+   // Pehle check karo ki file select hui hai ya nahi
+    if (fileInput.files.length === 0) {
+        console.log("Bhai, pehle koi file toh select karo!");
+        return; // File nahi hai toh yahin ruk jao
+    }
+
+    let formData = new FormData(); 
+    let myImage = fileInput.files;
+    formData.append('profileImage', myImage); 
+setTimeout(function() {
+    alert("3 second pure ho gaye! Yeh popup ek hi baar aayega.");
+}, 3000); // 3000 ms = 3 seconds
+    console.log("File pack ho gayi:", myImage[0]['name']);
+});
+
+    </script>
+</body>
+</html>
