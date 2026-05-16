@@ -1,0 +1,360 @@
+ 
+        /* CSS RESET & MASTER DESIGN SYSTEM */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --glass-bg: rgba(255, 255, 255, 0.02);
+            --glass-border: rgba(255, 255, 255, 0.07);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            
+            /* LeetCode Premium Color Palette */
+            --lc-easy: #00b8a3;
+            --lc-medium: #ffc01e;
+            --lc-hard: #ef4743;
+            --input-focus: #38bdf8;
+
+            /* Dynamic Progress Percentages */
+            --easy-percent: 0%;
+            --medium-percent: 0%;
+            --hard-percent: 0%;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-primary);
+            padding: 20px;
+        }
+
+        /* CARD MAIN CONTAINER - FLUID IMPLEMENTATION */
+        .leetcode-container {
+            width: 100%;
+            max-width: 540px;
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 35px 30px;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+        }
+
+        /* HEADER INTEGRITY WITH BRAND ICON */
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .header-wrapper svg {
+            fill: #ffa116;
+            filter: drop-shadow(0 0 8px rgba(255, 161, 22, 0.4));
+        }
+
+        #heading {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* INPUT ROW SYSTEM */
+        .user-details-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        #username {
+            flex: 1;
+            padding: 14px 18px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #username:focus {
+            border-color: var(--input-focus);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        #search-btn {
+            padding: 14px 26px;
+            background: var(--input-focus);
+            border: none;
+            border-radius: 14px;
+            color: #0f172a;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+            opacity: 0.95;
+        }
+
+        /* METRIC SUB HEADER CHIPS */
+        .meta-chips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .chip-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+        }
+
+        .chip-icon {
+            color: var(--input-focus);
+            font-size: 1.1rem;
+        }
+
+        .chip-info p {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
+
+        .chip-info h5 {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* RESULT AREA ROW SETUP WITH FLEX WRAP */
+        .result-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
+
+        /* PROGRESS ITEM CARD CONFIG */
+        .progress-itme.circle {
+            flex: 1;
+            min-width: 120px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 22px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 14px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+        }
+
+        .progress-itme.circle:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* HIGHLY DYNAMIC CONIC PROGRESS CIRCLES */
+        .easy-progress, .medium-progress, .hard-progress {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .easy-progress {
+            background: conic-gradient(var(--lc-easy) var(--easy-percent), rgba(255,255,255,0.04) 0);
+            box-shadow: 0 0 15px rgba(0, 184, 163, 0.12);
+        }
+        
+        .medium-progress {
+            background: conic-gradient(var(--lc-medium) var(--medium-percent), rgba(255,255,255,0.04) 0);
+            box-shadow: 0 0 15px rgba(255, 192, 30, 0.12);
+        }
+
+        .hard-progress {
+            background: conic-gradient(var(--lc-hard) var(--hard-percent), rgba(255,255,255,0.04) 0);
+            box-shadow: 0 0 15px rgba(239, 71, 67, 0.12);
+        }
+
+        /* Inner Core Hole to create the Ring effect */
+        .inner-circle-core {
+            width: 71px;
+            height: 71px;
+            background: #141328; 
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .inner-circle-core span {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Difficulty Text Labels Below Circles */
+        .label-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .progress-itme.circle:hover .label-text.e-txt { color: var(--lc-easy); text-shadow: 0 0 8px rgba(0, 184, 163, 0.3); }
+        .progress-itme.circle:hover .label-text.m-txt { color: var(--lc-medium); text-shadow: 0 0 8px rgba(255, 192, 30, 0.3); }
+        .progress-itme.circle:hover .label-text.h-txt { color: var(--lc-hard); text-shadow: 0 0 8px rgba(239, 71, 67, 0.3); }
+
+        .label-text.e-txt, .label-text.m-txt, .label-text.h-txt { color: var(--text-secondary); transition: color 0.3s; }
+
+        /* TOTAL ANALYTICS STACKED HORIZONTAL BAR */
+        .analytics-progress-wrapper {
+            margin-bottom: 25px;
+            background: rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px;
+        }
+
+        .bar-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .stacked-bar-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .segment {
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        .seg-easy { background: var(--lc-easy); width: 0%; }
+        .seg-medium { background: var(--lc-medium); width: 0%; }
+        .seg-hard { background: var(--lc-hard); width: 0%; }
+
+        /* GRID SYSTEM FOOTER LOCKERS */
+        .stats-grid-footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .footer-stat-card {
+            background: rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .foot-meta {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .foot-data {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .foot-data.gold {
+            color: var(--lc-medium);
+            text-shadow: 0 0 10px rgba(255, 192, 30, 0.15);
+        }
+
+        /* ======================================================== */
+        /* PREMIUM RESPONSIVE BREAKPOINTS (THE SENIOR ARCHITECTURE) */
+        /* ======================================================== */
+        @media screen and (max-width: 520px) {
+            .leetcode-container {
+                padding: 25px 20px;
+                border-radius: 24px;
+            }
+
+            #heading {
+                font-size: 1.35rem;
+            }
+
+            /* Stack Input Box and Button vertically on very small screens */
+            .user-details-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            #search-btn {
+                width: 100%;
+            }
+
+            /* Convert Grid Layouts to single column stack */
+            .meta-chips-grid, .stats-grid-footer {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            /* Force Circles to balance elegantly when wrapped */
+            .result-container {
+                justify-content: center;
+            }
+
+            .progress-itme.circle {
+                flex: unset;
+                width: calc(50% - 8px); /* Displays 2 cards side-by-side on mobile, 3rd wraps below nicely */
+                min-width: 130px;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            /* Extra micro fallback for very old/small devices */
+            .progress-itme.circle {
+                width: 100%; /* Full width cards stack if screen size is extremely tiny */
+            }
+        }
+    

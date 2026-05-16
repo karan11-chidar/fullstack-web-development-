@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite LeetCode Metric Tracker - Fully Responsive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="leetcode-container">
+        
+        <!-- Header Section -->
+        <div class="header-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24">
+                <path d="M13.483 0a1.374 1.374 0 0 0-.961.411L7.116 5.826a1.373 1.373 0 0 0-.01 1.945L12.59 13.26a1.373 1.373 0 0 0 1.944-.01l5.417-5.415a1.373 1.373 0 0 0 .01-1.945L14.454.411A1.374 1.374 0 0 0 13.483 0zm.01 2.336l3.96 3.962-4.444 4.444-3.96-3.961 4.444-4.445zM4.12 9.446a1.373 1.373 0 0 0-1.373 1.373v4.122a1.373 1.373 0 0 0 1.373 1.373h4.122a1.373 1.373 0 0 0 1.373-1.373v-4.122a1.373 1.373 0 0 0-1.373-1.373H4.12zm1.373 2.747h1.376v1.376H5.493v-1.376z"/>
+            </svg>
+            <h3 id="heading">LeetCode Analytics System</h3>
+        </div>
+        
+        <!-- Input Rows Group -->
+        <div class="user-details-container">
+            <input type="text" name="username" id="username" placeholder="Enter LeetCode username" required>
+            <button type="button" id="search-btn">Search</button>
+        </div>
+
+        <!-- Meta Sub Header Information Cards -->
+        <div class="meta-chips-grid">
+            <div class="chip-card">
+                <span class="chip-icon">🥷</span>
+                <div class="chip-info">
+                    <p>Profile Class</p>
+                    <h5>Competitive</h5>
+                </div>
+            </div>
+            <div class="chip-card">
+                <span class="chip-icon">🔥</span>
+                <div class="chip-info">
+                    <p>Current Status</p>
+                    <h5>Active Node</h5>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Circular System Row -->
+        <div class="result-container">
+            <div class="progress-itme circle">
+                <div class="easy-progress">
+                    <div class="inner-circle-core">
+                        <span id="easy-level">0</span>
+                    </div>
+                </div>
+                <div class="label-text e-txt">Easy</div>
+            </div>
+            
+            <div class="progress-itme circle">
+                <div class="medium-progress">
+                    <div class="inner-circle-core">
+                        <span id="medium-level">0</span>
+                    </div>
+                </div>
+                <div class="label-text m-txt">Medium</div>
+            </div>
+            
+            <div class="progress-itme circle">
+                <div class="hard-progress">
+                    <div class="inner-circle-core">
+                        <span id="hard-level">0</span>
+                    </div>
+                </div>
+                <div class="label-text h-txt">Hard</div>
+            </div>
+        </div>
+
+        <!-- Composite Horizontal Metric Analytics Panel -->
+        <div class="analytics-progress-wrapper">
+            <div class="bar-label-row">
+                <span>Problem Solving Composition</span>
+                <span style="color: var(--text-primary); font-weight: 600;" id="total-solved">342 Solved</span>
+            </div>
+            <div class="stacked-bar-container">
+                <div class="segment seg-easy" id="easy-progressbar"></div>
+                <div class="segment seg-medium" id="medium-progressbar"></div>
+                <div class="segment seg-hard" id="hard-progressbar"></div>
+            </div>
+        </div>
+
+        <!-- Dual Structural System Footer Grid -->
+        <div class="stats-grid-footer" id="ranking-container">
+            <div class="footer-stat-card">
+                <span class="foot-meta">Global Ranking</span>
+                <span class="foot-data gold" id="ranking-tag">#...</span>
+            </div>
+            <div class="footer-stat-card">
+                <span class="foot-meta">Accuracy Rate</span>
+                <span class="foot-data" id="accuracy-tag">0%</span>
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

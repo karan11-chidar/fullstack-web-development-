@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Planner</title>
+
+    <link rel="stylesheet" href="schedule.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="schedule-container">
+
+    <!-- Header -->
+
+    <div class="page-header">
+
+        <h2>
+            <i data-lucide="calendar-range"></i>
+            Schedule Planner
+        </h2>
+
+        <p>
+            Manage your upcoming tasks and deadlines efficiently.
+        </p>
+
+    </div>
+
+    <!-- Grid -->
+
+    <div class="schedule-grid">
+
+        <!-- Card -->
+
+        <div class="schedule-card">
+
+            <div class="schedule-top">
+
+                <span class="schedule-day">
+                    Monday
+                </span>
+
+                <span class="schedule-time">
+                    08:30 PM
+                </span>
+
+            </div>
+
+            <h3>Frontend UI Refinement</h3>
+
+            <p>
+                Improve responsiveness and animations for dashboard cards.
+            </p>
+
+            <div class="schedule-footer">
+
+                <div class="schedule-status">
+                    In Progress
+                </div>
+
+                <button class="schedule-btn">
+                    View
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Card -->
+
+        <div class="schedule-card completed">
+
+            <div class="schedule-top">
+
+                <span class="schedule-day">
+                    Tuesday
+                </span>
+
+                <span class="schedule-time">
+                    06:00 PM
+                </span>
+
+            </div>
+
+            <h3>Backend API Integration</h3>
+
+            <p>
+                Connect task manager with backend and local storage.
+            </p>
+
+            <div class="schedule-footer">
+
+                <div class="schedule-status completed-status">
+                    Completed
+                </div>
+
+                <button class="schedule-btn">
+                    View
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+</html>

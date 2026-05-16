@@ -1,0 +1,141 @@
+:root{
+
+    --bg-black:#09090b;
+    --card-bg:rgba(24,24,27,0.6);
+    --card-border:rgba(255,255,255,0.08);
+
+    --accent:#6366f1;
+
+    --text-main:#ffffff;
+    --text-dim:#a1a1aa;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Plus Jakarta Sans',sans-serif;
+}
+
+body{
+
+    background:
+    radial-gradient(circle at top right,#1e1b4b,#09090b);
+
+    min-height:100vh;
+
+    padding:40px;
+
+    color:var(--text-main);
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.analytics-container{
+
+    max-width:1300px;
+    margin:auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.page-header{
+
+    margin-bottom:40px;
+}
+
+.page-header h2{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:1.7rem;
+
+    margin-bottom:10px;
+}
+
+.page-header h2 i{
+
+    color:var(--accent);
+}
+
+.page-header p{
+
+    color:var(--text-dim);
+}
+
+/* =========================================
+   GRID
+========================================= */
+
+.analytics-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:24px;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.analytics-card{
+
+    background:var(--card-bg);
+
+    border:1px solid var(--card-border);
+
+    border-radius:28px;
+
+    padding:28px;
+
+    backdrop-filter:blur(20px);
+
+    transition:0.35s ease;
+}
+
+.analytics-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--accent);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,0.3);
+}
+
+.analytics-card h3{
+
+    color:var(--text-dim);
+
+    margin-bottom:18px;
+
+    font-size:0.95rem;
+}
+
+.analytics-card span{
+
+    font-size:2.4rem;
+
+    font-weight:800;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:600px){
+
+    body{
+        padding:20px;
+    }
+
+}

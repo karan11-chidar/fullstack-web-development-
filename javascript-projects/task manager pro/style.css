@@ -87,6 +87,9 @@
         .search-box { position: relative; flex: 1; max-width: 400px; }
         .search-box input { width: 100%; padding: 12px 16px 12px 45px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border); border-radius: 16px; color: white; outline: none; }
         .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-dim); }
+        .dropdwon-box{position: relative; flex: 1; max-width: 400px;}
+        .dropdwon-box input { width: 100%; padding: 12px 16px 12px 45px; background: rgba(87, 12, 12, 0.05); border: 1px solid var(--card-border); border-radius: 16px; color: white; outline: none; }
+        .dropdwon-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-dim); }
 
         .btn-primary { background: var(--accent); color: white; border: none; padding: 12px 24px; border-radius: 16px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 20px -5px var(--accent-glow); white-space: nowrap; }
 
@@ -384,6 +387,78 @@
     color: white;
 }
 
+/* =========================================
+   COMPLETED TASK
+========================================= */
+
+.task-card.completed{
+
+    border: 1px solid rgba(16,185,129,0.25);
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(16,185,129,0.08),
+        rgba(255,255,255,0.03)
+    );
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glow Effect */
+
+.task-card.completed::before{
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(16,185,129,0.08),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+/* Hover */
+
+.task-card.completed:hover{
+
+    border-color: #10b981;
+
+    box-shadow:
+    0 20px 40px rgba(16,185,129,0.15);
+}
+
+/* Title */
+
+.task-card.completed .task-title{
+
+    text-decoration: line-through;
+    opacity: 0.85;
+}
+
+/* Description */
+
+.task-card.completed .task-desc{
+
+    opacity: 0.75;
+}
+
+/* Badge */
+
+.task-card.completed .badge{
+
+    background: rgba(16,185,129,0.15);
+    color: #10b981;
+
+    border: 1px solid rgba(16,185,129,0.25);
+}
 /* =========================================
    RESPONSIVE
 ========================================= */

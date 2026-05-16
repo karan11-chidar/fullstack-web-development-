@@ -1,6 +1,12 @@
 // global array
+let editTaskIndex = null;
+const tasksList = JSON.parse(localStorage.getItem('localTask')) || [];
+console.log(tasksList);
+// date and time set initally
+let dateAndTime = new Date().toISOString().split('T');
+document.getElementById('date-picker').value = dateAndTime[0];
+document.getElementById('time-picker').value = dateAndTime[1];
 
-const tasksList = [];
 
 // Modals Ids
 let sidebar = document.getElementById('sidebar');
@@ -9,8 +15,10 @@ let openModal = document.getElementById('addTaskBtn');
 let closeModal = document.getElementById('closeModal');
 let taskModal = document.getElementById('taskModal');
 let saveModal = document.getElementById('saveModal');
-let taskGrid = document.getElementById("task-grid");
-
+let taskGrid = document.getElementById("task-table");
+let dropdownFilter = document.getElementById("dropdownInput");
+let searchFilter = document.getElementById("searchInput");
+ 
 // Handle Ui with js 
 openModal.addEventListener('click', function () {
   console.log('click add task modal');
@@ -27,10 +35,89 @@ menuBtn.addEventListener('click', function () {
   sidebar.classList.toggle('open');
 })
 
+// update stats
+function updateStats() {
+    // Stats Inputs
+    let productiveStats = document.getElementById('prod-stats')
+    let activeStats = document.getElementById("act-stats");
+    let MileStats = document.getElementById("comp-stats");
+
+    // Calculate stats
+    let totalTask = tasksList.length;
+    let completedTask = tasksList.filter(task => {
+        return task.completed === true;
+    }).length;
+    console.log(completedTask);
+    let pendingTask = totalTask - completedTask;
+    let productive =(totalTask===0)?0:((completedTask / totalTask) * 100).toFixed(1);
+    console.log(pendingTask);
+    productiveStats.innerText = `${productive}%`;
+    activeStats.innerText = `${pendingTask}`;
+    MileStats.innerText = `${completedTask}`
+}
+ //refresh ui 
+function refreshUI(taskList = tasksList) {
+  // 1. Pehle poore UI grid ko khali karo
+  taskGrid.innerHTML = "";
+
+  // 2. Updated array se saare cards wapas lagao sahi index ke sath
+  taskList.forEach(function (item, index) {
+    renderTask(item, index);
+  });
+  localStorage.setItem("localTask", JSON.stringify(tasksList));
+  updateStats();
+    console.log(localStorage);
+}
+
 // Buttons Actions handle
 taskGrid.addEventListener('click', function (event) {
-})
+    if (!(event.target.closest)) return;
 
+    let taskCard = event.target.closest('.task-card');
+    if (!taskCard) return;
+    let cardNumber = taskCard.dataset.index;
+    console.log(cardNumber);
+    let currentTask = tasksList[cardNumber];
+
+    // Delete Button
+    if (event.target.closest(".delete-task")) {
+      tasksList.splice(cardNumber, 1);
+        localStorage.setItem("localTask", JSON.stringify(tasksList));
+      console.log('delte card')
+      refreshUI();
+      taskCard.remove();
+    } else if (event.target.closest(".edit-task")) {
+      // Again Open task modal
+      taskModal.style.display = "flex";
+      editTaskIndex = cardNumber;
+      // Fill the value of Current task
+      document.getElementById("titleInput").value = currentTask.title;
+      document.getElementById("prioritySelect").value = currentTask.priority;
+      document.getElementById("descriptionInput").value =
+        currentTask.description;
+      document.getElementById("date-picker").value = currentTask.date;
+      document.getElementById("time-picker").value = currentTask.time;
+      refreshUI()
+      console.log("fill the all previous values");
+    } else if (event.target.closest(".complete-task")) {
+        taskCard.classList.toggle("completed");
+      if (!currentTask.completed) {
+        currentTask.completed = true;
+        // 2. UI par status text ko change karo
+        let statusDiv = taskCard.querySelector(".task-status");
+        statusDiv.innerHTML = '<span class="status-dot"></span> Completed';
+      } else {
+        currentTask.completed = false;
+        // 2. UI par status text ko change karo
+        let statusDiv = taskCard.querySelector(".task-status");
+        statusDiv.innerHTML = '<span class="status-dot"></span> InProgress';
+      }
+
+      localStorage.setItem("localTask", JSON.stringify(tasksList));
+      updateStats();
+        console.log(localStorage)
+    }
+})
 function renderTask(task,taskNumber){
   let newTask = document.createElement('div');
   newTask.classList.add('task-card');
@@ -123,6 +210,10 @@ saveModal.addEventListener('click', function (event) {
   let date = document.getElementById('date-picker').value;
   let time = document.getElementById('time-picker').value;
   
+    if (title.trim() === '') { alert('Please Enter Correct Title .'); return; }
+    if (priority === '') { alert('Enter priority task .'); return; }
+    if (description.trim() === '') { alert('Enter Correct Description .'); return; }
+    if (date === '' || time === '') { alert('Enter correct date and time format .'); return }
   // object values tasks
   const task = {
     title: title,
@@ -131,10 +222,58 @@ saveModal.addEventListener('click', function (event) {
     completed: false,
     date: date,
     time:time
-  }
-  tasksList.push(task);
-  console.log(tasksList);
-  renderTask(task,tasksList.length-1);
+    }
+    if (editTaskIndex === null) {
+        tasksList.push(task);
+    }
+    else {
+        tasksList[editTaskIndex] = task;
+        editTaskIndex = null;
+    }
+  refreshUI();
+  title.value = '';
+  description.value = '';
+  priority.value = '';
   taskModal.style.display = 'none';
 })
+
+function filterTask() {
+  // filter inputs ids
+    let dropdownValue = document.getElementById('dropdownInput').value;
+    let searchValue = document.getElementById('searchInput').value;
+
+  // format filter values
+  let dropdownText = dropdownValue.toLowerCase();
+  let searchText = searchValue.toLowerCase();
+
+  let filterResult = tasksList.filter(task => {
+    if (
+      ((task.priority.toLowerCase() === dropdownText) ||(dropdownText === ""))
+      && (task.title.toLowerCase().includes(searchText)))
+    {
+      return task;
+    }
+  });
+  console.log(filterResult);
+  refreshUI(filterResult);
+  dropdownValue.value = "";
+  searchValue.value = "";
+  console.log(dropdownText);
+  console.log(searchText);
+}
+dropdownFilter.addEventListener('change', function () {
+  console.log('dropdwon fileter is rungin')
+   filterTask();
+})
+let searchTimer;
+searchFilter.addEventListener('input', function () {
+  console.log("search bar is runing");
+
+  clearTimeout(searchTimer);
+  console.log('timer start now')
+  searchTimer = setTimeout(function () {
+    filterTask();
+  },1500)
+})
+refreshUI();
 lucide.createIcons()

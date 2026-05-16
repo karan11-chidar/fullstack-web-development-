@@ -1,0 +1,240 @@
+ /* CSS RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #38bdf8;
+            
+            /* Suggestion Mood Colors */
+            --suggest-clear-bg: rgba(234, 179, 8, 0.1);
+            --suggest-clear-border: rgba(234, 179, 8, 0.3);
+            --suggest-clear-text: #facc15;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-primary);
+            padding: 20px;
+        }
+
+        /* DASHBOARD CONTAINER */
+        .dashboard-container {
+            width: 100%;
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* LEFT COLUMN: MAIN WEATHER CARD */
+        .main-card {
+            background: linear-gradient(180deg, rgba(56, 189, 248, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            min-height: 480px;
+        }
+
+        .location-box h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .location-box p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .weather-visual {
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .weather-icon-cloud {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-color);
+            border-radius: 50px;
+            filter: blur(15px);
+            opacity: 0.2;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+        }
+
+        .temp-box h1 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1;
+            margin-top: 10px;
+        }
+
+        .temp-box h1 span {
+            font-size: 2rem;
+            vertical-align: super;
+        }
+
+        .condition-text {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* NEW: ELITE SUGGESTION BOX STYLING */
+        .suggestion-zone {
+            width: 100%;
+            background: var(--suggest-clear-bg);
+            border: 1px solid var(--suggest-clear-border);
+            border-radius: 14px;
+            padding: 15px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+            animation: softPulse 3s infinite ease-in-out;
+        }
+
+        .suggestion-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .suggestion-text h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--suggest-clear-text);
+            margin-bottom: 2px;
+        }
+
+        .suggestion-text p {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            opacity: 0.85;
+            line-height: 1.3;
+        }
+
+        /* RIGHT COLUMN: METRICS & FORECAST */
+        .details-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        /* HIGHLIGHTS GRID */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .metric-value {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        /* FORECAST ROW */
+        .forecast-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            overflow-x: auto;
+        }
+
+        .forecast-card {
+            flex: 1;
+            min-width: 80px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 15px 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .forecast-time {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .forecast-temp {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes softPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0px rgba(234, 179, 8, 0); }
+            50% { transform: scale(1.01); box-shadow: 0 4px 20px rgba(234, 179, 8, 0.15); }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            .main-card {
+                min-height: auto;
+            }
+        }
+    
