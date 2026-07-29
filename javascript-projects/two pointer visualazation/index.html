@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Two Pointer Visualization</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 id="heading">Two Pointer Visualization</h2>
+        
+        <div class="user-inputs">
+            <div class="input-txt"> 
+                <input id="input-ele" type="text" placeholder="Enter elements (e.g., 1, 3, 5, 7, 9)">
+                <span id="warning-input">Please enter sorted array elements separated by commas ,</span>
+            </div>
+            <input type="number" id="target-element" placeholder="Target">
+            <button id="start-btn">Start Simulation</button>
+            <button id="pause-btn" class="control-btn" disabled>Pause</button>
+        </div>
+        
+        <div class="array-res">
+            </div>
+
+        <div class="status-log" id="status-display">
+            Click "Start Simulation" to visualize Left & Right pointer operations...
+        </div>
+    </div>
+    
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

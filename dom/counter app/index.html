@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        #counter-number{
+            color: red;
+            margin-top: 5rem;
+            font-size: 2.4rem;
+            text-align: center;
+        }
+        .btn{
+           padding:0.8rem 1rem;
+           font-size: 1.2rem;
+            border: 1px;
+            outline: none;
+            border-radius: 10px;
+        }
+        #increase-btn{
+            background-color: green;
+        }
+        #decrease-btn{
+            background-color: red;
+        }
+        div{
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="counter-number">0</h1>
+    <div>
+         <button id="increase-btn" class="btn 1">( + ) Increase </button>
+        <button id="decrease-btn" class="btn 2">( - ) Decrease </button>
+    </div>
+   <script src="./script.js"></script>
+</body>
+</html>

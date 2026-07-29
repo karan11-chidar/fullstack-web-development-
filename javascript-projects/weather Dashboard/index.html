@@ -3,29 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Weather Dashboard - Pro Edition</title>
+    <title>Elite Weather Dashboard - Ultra Responsive</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main class="dashboard-container">
+
+        <!-- FLUID LOCATION CONTROL LAYER -->
+        <div class="search-control-wrapper">
+            <div class="search-input-box">
+                <svg class="geo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <input type="text" id="city-input" placeholder="Enter global city weather...">
+            </div>
+            <button type="button" class="action-btn" id="search-btn">Fetch Report</button>
+            <button type="button" class="gps-btn" id="geo-btn" title="Detect Location">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <line x1="12" y1="1" x2="12" y2="4"></line>
+                    <line x1="12" y1="20" x2="12" y2="23"></line>
+                    <line x1="1" y1="12" x2="4" y2="12"></line>
+                    <line x1="20" y1="12" x2="23" y2="12"></line>
+                </svg>
+            </button>
+        </div>
         
-        <!-- LEFT COLUMN: CURRENT WEATHER & DYNAMIC SUGGESTIONS -->
+        <!-- LEFT SECTOR: DISPLAY BASE METRICS -->
         <section class="main-card">
-            <div class="location-box">
-                <h2 id="location-name">Bhopal</h2>
-                <p id="current-date">Saturday, 16 May</p>
+                <h2 id="location-name"></h2>
+                <p id="current-date"></p>
             </div>
 
-            <div class="weather-visual">
-                <div class="weather-icon-cloud"></div>
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.47 0-.89.09-1.32.26A7 7 0 1 0 3 13.5A3.5 3.5 0 0 0 6.5 17H17"></path></svg>
+            <div class="weather-visual" id="weather-show-icon">
+                <!-- <div class="weather-icon-cloud" id="weather-icon"></div> -->
+                <!-- <svg id="cloud-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.47 0-.89.09-1.32.26A7 7 0 1 0 3 13.5A3.5 3.5 0 0 0 6.5 17H17"></path></svg> -->
                 <div class="temp-box">
-                    <h1>32<span>°</span></h1>
-                    <div class="condition-text">Clear Sky</div>
+                    <h1 id="temp-val">32<span>°</span></h1>
+                    <div class="condition-text" id="weather-condition">Clear Sky</div>
                 </div>
             </div>
 
-            <!-- Suggestion UI Component Added Here -->
+            <!-- Suggestion Engine Card Element -->
             <div class="suggestion-zone" id="weather-suggestion">
                 <div class="suggestion-icon">💡</div>
                 <div class="suggestion-text">
@@ -35,55 +56,55 @@
             </div>
         </section>
 
-        <!-- RIGHT COLUMN: DETAILED METRICS & TIMELINE -->
+        <!-- RIGHT SECTOR: COMPLEX DATA FLOW PANELS -->
         <section class="details-wrapper">
             
-            <!-- Highlights Section -->
+            <!-- Highlights Component Wrapper -->
             <div>
                 <h3 class="section-title">Today's Highlights</h3>
                 <div class="highlights-grid">
                     <div class="metric-card">
                         <div class="metric-label">Wind Status</div>
-                        <div class="metric-value">12 <span style="font-size: 1rem; color: var(--text-secondary);">km/h</span></div>
+                        <div class="metric-value" id="wind-val">0 <span style="font-size: 0.85rem; color: var(--text-secondary);">km/h</span></div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-label">Humidity</div>
-                        <div class="metric-value">45<span style="font-size: 1rem; color: var(--text-secondary);">%</span></div>
+                        <div class="metric-value" id="humidity-val">0<span style="font-size: 0.85rem; color: var(--text-secondary);">%</span></div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-label">UV Index</div>
-                        <div class="metric-value">6 <span style="font-size: 1rem; color: var(--text-secondary);">Medium</span></div>
+                        <div class="metric-value" id="uv-val">0 <span style="font-size: 0.85rem; color: var(--text-secondary);">Medium</span></div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-label">Air Pressure</div>
-                        <div class="metric-value">1012 <span style="font-size: 1rem; color: var(--text-secondary);">hPa</span></div>
+                        <div class="metric-value" id="pressure-val">0<span style="font-size: 0.85rem; color: var(--text-secondary);">hPa</span></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Hourly Forecast Section -->
+            <!-- Timeline Row Component Wrapper -->
             <div>
                 <h3 class="section-title">Hourly Forecast</h3>
                 <div class="forecast-row">
                     <div class="forecast-card">
-                        <span class="forecast-time">09:00</span>
+                        <span class="forecast-time" id="forecast-time-1">09:00</span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-                        <span class="forecast-temp">28°</span>
+                        <span class="forecast-temp" id="forecast-temp-1">28°</span>
                     </div>
                     <div class="forecast-card">
-                        <span class="forecast-time">12:00</span>
+                        <span class="forecast-time" id="forecast-time-2">12:00</span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-                        <span class="forecast-temp">32°</span>
+                        <span class="forecast-temp" id="forecast-temp-2">32°</span>
                     </div>
                     <div class="forecast-card">
-                        <span class="forecast-time">15:00</span>
+                        <span class="forecast-time" id="forecast-time-3">15:00</span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-                        <span class="forecast-temp">31°</span>
+                        <span class="forecast-temp" id="forecast-temp-3">31°</span>
                     </div>
                     <div class="forecast-card">
-                        <span class="forecast-time">18:00</span>
+                        <span class="forecast-time" id="forecast-time-4 ">18:00</span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-                        <span class="forecast-temp">27°</span>
+                        <span class="forecast-temp" id="forecast-temp-4 ">27°</span>
                     </div>
                 </div>
             </div>
@@ -91,6 +112,6 @@
         </section>
 
     </main>
-<script src="script.js"></script>
+<script  src="./app.js"  type="module"></script>
 </body>
 </html>
